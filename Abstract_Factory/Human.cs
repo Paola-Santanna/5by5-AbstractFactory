@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abstract_Factory
 {
-    internal class Cow : IAnimal
+    internal class Human : IAnimal
     {
         public string name { get; set; }
         public string animalType { get; set; }
@@ -15,7 +15,7 @@ namespace Abstract_Factory
         public string sleep { get; set; }
         public string eat { get; set; }
 
-        public Cow()
+        public Human()
         {
             this.name = Name();
             this.animalType = AnimalType();
@@ -27,19 +27,20 @@ namespace Abstract_Factory
 
         public string AnimalType()
         {
-            string type = "Vaca";
+            string type = "Ser Humano";
             return type;
         }
 
         public string Name()
         {
-            Console.Write($"Insira o nome da {AnimalType()}: ");
+            Console.Write($"Insira o nome do {AnimalType()}: ");
             return Console.ReadLine();
         }
 
         public string AnimalSound()
         {
-            string sound = "Muuuuuuuuuuuuuuuuuu";
+            Console.Write("Som: ");
+            string sound = Console.ReadLine();
             return sound;
         }
         string Run(bool isRunning) => isRunning ? "Sim" : "Não";
