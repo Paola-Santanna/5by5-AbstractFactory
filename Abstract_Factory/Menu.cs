@@ -15,6 +15,7 @@ namespace Abstract_Factory
             Console.WriteLine("Qual animal você quer gerar?");
             Console.WriteLine("1 -> Vaca");
             Console.WriteLine("2 -> Cavalo");
+            Console.WriteLine("3 -> Ser Humano");
             Console.WriteLine("0 -> Sair e Mostrar os animais");
             Console.Write("Opção Escolhida: ");
             return int.Parse(Console.ReadLine());
@@ -27,6 +28,8 @@ namespace Abstract_Factory
             List<Cow> cows = new List<Cow>();
             Horse horse;
             List<Horse> horses = new List<Horse>();
+            Human humano;
+            List<Human> humanos = new List<Human>();
 
             do
             {
@@ -55,7 +58,7 @@ namespace Abstract_Factory
                         break;
 
                     case 2:
-                        Console.WriteLine("Gerando Cavalo");
+                        Console.WriteLine("Gerando Cavalos");
                         Console.WriteLine($"\nInsira a quantidade de cavalos: ");
                         qtdAnimais = int.Parse(Console.ReadLine());
                         for (int i = 0; i < qtdAnimais; i++)
@@ -69,6 +72,24 @@ namespace Abstract_Factory
                         Console.ReadKey();
                         Console.Clear();
                         resposta = MenuOptions();
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Gerando Ser Humano");
+                        Console.WriteLine($"\nInsira a quantidade de seres humanos: ");
+                        qtdAnimais = int.Parse(Console.ReadLine());
+                        for (int i = 0; i < qtdAnimais; i++)
+                        {
+                            humano = new Human();
+                            humanos.Add(humano);
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine("\nPressione ENTER para continuar...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        resposta = MenuOptions();
+
                         break;
 
                     default:
@@ -87,6 +108,12 @@ namespace Abstract_Factory
 
             Console.WriteLine("\n\nCavalos:\n".ToUpper());
             foreach (var animal in horses)
+            {
+                Console.WriteLine(animal.ToString() + "\n");
+            }
+
+            Console.WriteLine("\n\nSeres Humanos:\n".ToUpper());
+            foreach (var animal in humanos)
             {
                 Console.WriteLine(animal.ToString() + "\n");
             }
